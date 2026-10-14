@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Highdesk — Register</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card">
+      <h1><span class="brand">Highdesk</span></h1>
+      <p class="subtitle">Create your corporate account</p>
+
+      <div id="alert" class="alert alert-error hidden"></div>
+
+      <form id="register-form">
+        <div class="form-group">
+          <label for="full_name">Full Name</label>
+          <input type="text" id="full_name" name="full_name" placeholder="Jane Smith">
+          <div class="field-error"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Corporate Email</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com">
+          <div class="field-error"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Min 8 chars, mixed case, number, special">
+          <div class="field-error"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirm_password">Confirm Password</label>
+          <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter password">
+          <div class="field-error"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select id="role" name="role">
+            <option value="">Select role…</option>
+            <option value="Client">Client</option>
+            <option value="Agent">Agent</option>
+            <option value="Manager">Manager</option>
+          </select>
+          <div class="field-error"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="register-btn">Create Account</button>
+      </form>
+
+      <p class="auth-footer">
+        Already have an account? <a href="/index.html">Sign in</a>
+      </p>
+    </div>
+  </div>
+
+  <script type="module" src="/js/register.js"></script>
+</body>
+</html>

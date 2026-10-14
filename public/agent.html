@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Highdesk — Agent Queue</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Highdesk</h1>
+    <div class="user-info">
+      <span id="user-name"></span>
+      <span class="role-badge" id="user-role"></span>
+      <button type="button" class="btn btn-sm btn-secondary" id="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <nav class="app-nav">
+    <a href="/agent.html" class="active">Ticket Queue</a>
+    <a href="/manager.html">Metrics</a>
+  </nav>
+
+  <main class="main-content">
+    <div class="filters-bar">
+      <select id="filter-category">
+        <option value="">All Categories</option>
+        <option value="IT">IT</option>
+        <option value="HR">HR</option>
+        <option value="Facilities">Facilities</option>
+      </select>
+      <select id="filter-urgency">
+        <option value="">All Urgencies</option>
+        <option value="Urgent">Urgent</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+      <select id="filter-assignee">
+        <option value="">All Assignees</option>
+      </select>
+      <div class="view-toggle">
+        <button id="view-kanban" class="active">Kanban</button>
+        <button id="view-list">List</button>
+      </div>
+    </div>
+
+    <div id="kanban-view">
+      <div class="kanban-board" id="kanban-board">
+        <div class="kanban-column" data-status="New">
+          <h3>New <span class="count" id="count-new">0</span></h3>
+          <div class="kanban-cards" id="col-new"></div>
+        </div>
+        <div class="kanban-column" data-status="In Progress">
+          <h3>In Progress <span class="count" id="count-in-progress">0</span></h3>
+          <div class="kanban-cards" id="col-in-progress"></div>
+        </div>
+        <div class="kanban-column" data-status="Resolved">
+          <h3>Resolved <span class="count" id="count-resolved">0</span></h3>
+          <div class="kanban-cards" id="col-resolved"></div>
+        </div>
+        <div class="kanban-column" data-status="Closed">
+          <h3>Closed <span class="count" id="count-closed">0</span></h3>
+          <div class="kanban-cards" id="col-closed"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="list-view" class="hidden">
+      <table class="ticket-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Urgency</th>
+            <th>Status</th>
+            <th>Reporter</th>
+            <th>Assignee</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="list-body"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script type="module" src="/js/agent.js"></script>
+</body>
+</html>

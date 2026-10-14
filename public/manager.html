@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Highdesk — Operations Dashboard</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Highdesk</h1>
+    <div class="user-info">
+      <span id="user-name"></span>
+      <span class="role-badge" id="user-role"></span>
+      <button type="button" class="btn btn-sm btn-secondary" id="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <nav class="app-nav">
+    <a href="/agent.html">Ticket Queue</a>
+    <a href="/manager.html" class="active">Metrics</a>
+  </nav>
+
+  <main class="main-content">
+    <div class="metrics-grid" id="summary-metrics"></div>
+
+    <div class="grid-2">
+      <section class="metrics-section">
+        <h2>Tickets by Category</h2>
+        <table class="ticket-table" id="category-table">
+          <thead>
+            <tr><th>Category</th><th>Open</th><th>Resolved</th></tr>
+          </thead>
+          <tbody id="category-body"></tbody>
+        </table>
+      </section>
+
+      <section class="metrics-section">
+        <h2>Agent Workload</h2>
+        <table class="ticket-table" id="workload-table">
+          <thead>
+            <tr><th>Agent</th><th>New</th><th>In Progress</th><th>Resolved</th><th>Total</th></tr>
+          </thead>
+          <tbody id="workload-body"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <section class="metrics-section" style="margin-top:2rem;">
+      <h2>Time-to-Acknowledge (Target &lt; 30 min)</h2>
+      <table class="ticket-table">
+        <thead>
+          <tr><th>Ticket</th><th>Category</th><th>Created</th><th>Ack Time (min)</th><th>Status</th></tr>
+        </thead>
+        <tbody id="ack-body"></tbody>
+      </table>
+    </section>
+
+    <section class="metrics-section" style="margin-top:2rem;">
+      <h2>Resolution Times</h2>
+      <table class="ticket-table">
+        <thead>
+          <tr><th>Ticket</th><th>Category</th><th>Created</th><th>Resolution (hrs)</th></tr>
+        </thead>
+        <tbody id="resolution-body"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script type="module" src="/js/manager.js"></script>
+</body>
+</html>
